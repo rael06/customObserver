@@ -4,21 +4,22 @@ public class MyObserver {
 
     public MyObserver(MyString myString, MyInt myId){
         this.myString = myString;
-        MyStringObserver mso = new MyStringObserver();
-        this.myString.getObservable().addObserver(mso);
-
+        registerObserver(myString.getObservable(), new MyStringObserver());
 
         this.myId = myId;
-        MyIntObserver mio = new MyIntObserver();
-        this.myId.getObservable().addObserver(mio);
+        registerObserver(myId.getObservable(), new MyIntObserver());
+    }
+
+    private <T> void registerObserver(Observable<T> observable, Observer<T> observer) {
+        observable.addObserver(observer);
     }
 
     public void showMyStringMessage() {
-        System.out.println(myString.getMessage());
+        myString.showStringUpdates();
     }
 
     public void showMyIntId() {
-        System.out.println(myId.getId());
+        myId.showIntUpdates();
     }
 //
 //    public MyString getMyString() {

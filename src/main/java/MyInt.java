@@ -3,11 +3,8 @@ public class MyInt {
 
     private int id = 1;
 
-    public MyInt() {
-    }
-
-    public int getId() {
-        return id;
+    public void showIntUpdates() {
+        System.out.println("Id of myInt : " + id);
     }
 
     public void setId(int id) {

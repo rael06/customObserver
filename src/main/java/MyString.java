@@ -3,11 +3,8 @@ public class MyString {
 
     private String message = "first message";
 
-    public MyString() {
-    }
-
-    public String getMessage() {
-        return message;
+    public void showStringUpdates() {
+        System.out.println("Message of myString : " + message);
     }
 
     public void setMessage(String message) {
