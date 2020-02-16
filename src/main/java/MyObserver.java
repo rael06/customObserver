@@ -3,7 +3,6 @@ public class MyObserver {
     private final MyInt myId;
 
     public MyObserver(MyString myString, MyInt myId){
-
         this.myString = myString;
         MyStringObserver mso = new MyStringObserver();
         this.myString.getObservable().addObserver(mso);
