@@ -1,12 +1,38 @@
 public class MyObserver {
-    private Observer1 observer1 = new Observer1();
-    private Observer2 observer2 = new Observer2();
+    private final MyString myString;
+    private final MyInt myId;
 
-    public Observer1 getObserver1() {
-        return observer1;
+    private MyStringObserver mso = new MyStringObserver();
+    private MyIntObserver mio = new MyIntObserver();
+
+    public MyObserver(){
+        myString = new MyString();
+        myString.getObservable().addObserver(mso);
+        myId = new MyInt();
+        myId.getObservable().addObserver(mio);
     }
 
-    public Observer2 getObserver2() {
-        return observer2;
+    public void showMyStringMessage() {
+        System.out.println(myString.getMessage());
+    }
+
+    public void showMyIntId() {
+        System.out.println(myId.getId());
+    }
+
+    public MyString getMyString() {
+        return myString;
+    }
+
+    public MyInt getMyId() {
+        return myId;
+    }
+
+    public MyStringObserver getMso() {
+        return mso;
+    }
+
+    public MyIntObserver getMio() {
+        return mio;
     }
 }

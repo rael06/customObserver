@@ -1,20 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
+    private static Scanner sc = new Scanner(System.in);
+    private static MyObserver observer = new MyObserver();
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        MyObservable1 observable1 = new MyObservable1("observable1");
-        MyObservable2 observable2 = new MyObservable2("observable2");
-        MyObserver observer = new MyObserver();
-        observable1.getObservable().addObserver(observer.getObserver1());
-        observable2.getObservable().addObserver(observer.getObserver2());
-        System.out.println(observable1.getMessage());
+        observer.showMyStringMessage();
+        observer.showMyIntId();
+        System.out.println("changing values, press enter to compute");
         sc.nextLine();
-        System.out.println(observable2.getMessage());
-        sc.nextLine();
-        observable1.setMessage("observable11", observer.getObserver1());
-        sc.nextLine();
-        observable2.setMessage("observable22", observer.getObserver2());
-        sc.nextLine();
+        System.out.println("new values : ");
+        changeMyStringMessage("updated message");
+        changeMyIntId(2);
+    }
+
+    public static void changeMyStringMessage(String message) {
+        observer.getMyString().updateMessage(message, observer.getMso());
+    }
+
+    public static void changeMyIntId(int id) {
+        observer.getMyId().updateId(id);
     }
 }
