@@ -3,7 +3,7 @@ public class MyInt {
 
     private int id = 1;
 
-    public void showIntUpdates() {
+    public void showInt() {
         System.out.println("Id of myInt : " + id);
     }
 

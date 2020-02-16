@@ -3,7 +3,7 @@ public class MyString {
 
     private String message = "first message";
 
-    public void showStringUpdates() {
+    public void showString() {
         System.out.println("Message of myString : " + message);
     }
 

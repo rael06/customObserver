@@ -15,11 +15,11 @@ public class MyObserver {
     }
 
     public void showMyStringMessage() {
-        myString.showStringUpdates();
+        myString.showString();
     }
 
     public void showMyIntId() {
-        myId.showIntUpdates();
+        myId.showInt();
     }
 //
 //    public MyString getMyString() {
