@@ -1,7 +1,9 @@
 public interface Observer<T>  {
-    void update(T observable);
+    void update(T observable, Object arg);
 
-    <U> void update(T observable, U arg);
 
-    <U> void updateArg(U arg);
+// not allowed
+    //<U> void update(T observable, U arg);
+
+    //<U> void updateArg(U arg);
 }

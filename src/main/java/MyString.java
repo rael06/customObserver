@@ -14,9 +14,9 @@ public class MyString {
         this.message = message;
     }
 
-    public void updateMessage(String newMessage, Observer<MyString> observer) {
+    public void updateMessage(String newMessage) {
         setMessage(newMessage);
-        observable.notifyArg(observer, newMessage);
+        observable.notifyObservers(newMessage);
     }
 
     public Observable<MyString> getObservable() {

@@ -17,28 +17,34 @@ public class Observable<T> {
         observers.remove(observer);
     }
 
-    public void notifyObserver(Observer<T> observer){
-        System.out.println("second method");
-        observer.update(container);
-    }
-
-    public <U> void notifyArgObserver(Observer<T> observer, U arg){
-        System.out.println("fourth method");
-        observer.update(container, arg);
-    }
-
-    public <U> void notifyArg(Observer<T> observer, U arg){
-        System.out.println("fifth method");
-        observer.updateArg(arg);
-    }
-
-    public <U> void notifyArgAllObservers(U arg) {
-        System.out.println("third method");
-        observers.forEach(o->o.updateArg(arg));
-    }
-
-    public void notifyAllObservers() {
+    public void notifyObservers() {
         System.out.println("first method");
-        observers.forEach(o->o.update(container));
+        observers.forEach(o->o.update(container, null));
     }
+
+    public void notifyObservers(Object arg) {
+        System.out.println("second method");
+        observers.forEach(o->o.update(container, arg));
+    }
+
+// not allowed
+//    public void notifyObserver(Observer<T> observer){
+//        System.out.println("third method");
+//        observer.update(container);
+//    }
+//
+//    public <U> void notifyArgAllObservers(U arg) {
+//        System.out.println("fourth method");
+//        observers.forEach(o->o.updateArg(arg));
+//    }
+//
+//    public <U> void notifyArgObserver(Observer<T> observer, U arg){
+//        System.out.println("fifth method");
+//        observer.update(container, arg);
+//    }
+//
+//    public <U> void notifyArg(Observer<T> observer, U arg){
+//        System.out.println("sixth method");
+//        observer.updateArg(arg);
+//    }
 }

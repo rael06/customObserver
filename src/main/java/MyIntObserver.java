@@ -1,16 +1,6 @@
 public class MyIntObserver implements Observer<MyInt> {
     @Override
-    public void update(MyInt observable) {
+    public void update(MyInt observable, Object arg) {
         System.out.println(observable.getId());
-    }
-
-    @Override
-    public <Integer> void update(MyInt observable, Integer arg) {
-        System.out.println(arg);
-    }
-
-    @Override
-    public <Integer> void updateArg(Integer arg) {
-        System.out.println(arg);
     }
 }

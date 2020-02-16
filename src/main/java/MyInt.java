@@ -16,7 +16,7 @@ public class MyInt {
 
     public void updateId(int newId) {
         setId(newId);
-        observable.notifyArgAllObservers(newId);
+        observable.notifyObservers();
     }
 
     public Observable<MyInt> getObservable() {

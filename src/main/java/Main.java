@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-    private static MyObserver observer = new MyObserver();
+    private static MyString myString = new MyString();
+    private static MyInt myInt = new MyInt();
+    private static MyObserver observer = new MyObserver(myString, myInt);
 
     public static void main(String[] args) {
         observer.showMyStringMessage();
@@ -15,10 +17,10 @@ public class Main {
     }
 
     public static void changeMyStringMessage(String message) {
-        observer.getMyString().updateMessage(message, observer.getMso());
+        new ObservableUpdater<>(myString).getObservable().updateMessage(message);
     }
 
     public static void changeMyIntId(int id) {
-        observer.getMyId().updateId(id);
+        new ObservableUpdater<>(myInt).getObservable().updateId(id);
     }
 }
